@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_clientes', function (Blueprint $table) {
-            $table->bigIncrements('id_tipo_cliente');
+        Schema::create('tipo_productos', function (Blueprint $table) {
+            $table->bigIncrements('id_tipo_producto');
             $table->decimal('descuento', 5, 2)->default(0);
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_clientes');
+        Schema::dropIfExists('tipo_productos');
     }
 };

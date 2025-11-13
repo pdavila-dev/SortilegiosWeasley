@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_clientes', function (Blueprint $table) {
-            $table->bigIncrements('id_tipo_cliente');
-            $table->decimal('descuento', 5, 2)->default(0);
+        Schema::create('desc_prod', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_producto');
+            $table->string('descripcion_producto', 255);
             $table->timestamps();
+
+            $table->primary(['id_producto']);
+            $table->foreign('id_producto')
+                ->references('id_producto')
+                ->on('productos')
+                ->cascadeOnDelete();
         });
     }
 
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_clientes');
+        Schema::dropIfExists('desc_prod');
     }
 };
