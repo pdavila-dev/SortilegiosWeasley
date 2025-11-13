@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('clientes_registrados', function (Blueprint $table) {
-            $table->bigIncrements('id_cliente');
+            $table->unsignedBigInteger('id_cliente');
             $table->string('nif', 20)->nullable();
             $table->string('nombre', 50)->nullable();
             $table->string('apellidos', 100)->nullable();
